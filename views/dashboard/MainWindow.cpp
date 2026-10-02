@@ -4,7 +4,7 @@
 #include "../clients/ClientPage.h"
 #include "../deals/DealPage.h"
 #include "../reports/ReportPage.h"
-#include "models/database/DatabaseManager.h"
+#include "../../models/database/DatabaseManager.h"
 
 #include <QAction>
 #include <QMessageBox>
@@ -15,7 +15,9 @@
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
 {
-    setWindowTitle(QStringLiteral("Информационная система проката автомобилей"));
+    setWindowTitle(
+        QStringLiteral("Информационная система проката автомобилей"));
+
     resize(1000, 650);
 
     auto* toolbar = addToolBar(QStringLiteral("Система"));
@@ -31,10 +33,14 @@ MainWindow::MainWindow(QWidget* parent)
 
     auto* tabs = new QTabWidget(this);
 
-    tabs->addTab(new ClientPage(tabs), QStringLiteral("Клиенты"));
-    tabs->addTab(new CarPage(tabs), QStringLiteral("Автомобили"));
-    tabs->addTab(new DealPage(tabs), QStringLiteral("Сделки"));
-    tabs->addTab(new ReportPage(tabs), QStringLiteral("Отчёт"));
+    tabs->addTab(new ClientPage(tabs),
+                 QStringLiteral("Клиенты"));
+    tabs->addTab(new CarPage(tabs),
+                 QStringLiteral("Автомобили"));
+    tabs->addTab(new DealPage(tabs),
+                 QStringLiteral("Сделки"));
+    tabs->addTab(new ReportPage(tabs),
+                 QStringLiteral("Отчёт"));
 
     setCentralWidget(tabs);
 
@@ -48,18 +54,20 @@ void MainWindow::checkDatabaseConnection()
 
     if (DatabaseManager::instance().ping(&response)) {
         statusBar()->showMessage(response, 10000);
+
         QMessageBox::information(
             this,
             QStringLiteral("Проверка PostgreSQL"),
             DatabaseManager::instance().connectionSummary()
-                + "
-
-"
+                + QStringLiteral("\n\n")
                 + response);
+
         return;
     }
 
-    statusBar()->showMessage(QStringLiteral("Ошибка подключения к БД"), 10000);
+    statusBar()->showMessage(
+        QStringLiteral("Ошибка проверки БД"),
+        10000);
 
     QMessageBox::critical(
         this,
