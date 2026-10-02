@@ -1,3 +1,18 @@
 #pragma once
+
 #include <QObject>
-class AuthController:public QObject{Q_OBJECT public:using QObject::QObject;QString currentRole()const{return role_;}private:QString role_;};
+#include <QString>
+
+class AuthController : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit AuthController(QObject* parent = nullptr);
+
+    void setCurrentRole(const QString& role);
+    QString currentRole() const;
+
+private:
+    QString role_;
+};
