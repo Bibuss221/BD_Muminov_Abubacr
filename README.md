@@ -65,6 +65,7 @@ BD_Muminov_Abubacr/
 ├── database/
 │   ├── schema.sql
 │   ├── triggers.sql
+│   ├── functions.sql
 │   ├── views.sql
 │   ├── indexes.sql
 │   ├── optimization.sql
@@ -101,6 +102,7 @@ BD_Muminov_Abubacr/
 
 - Приложение А → database/schema.sql;
 - Приложение Б → database/triggers.sql;
+- расчёт стоимости → database/functions.sql;
 - Приложение В → database/roles.sql;
 - v_car_rent_summary → database/views.sql;
 - индексы → database/indexes.sql;
