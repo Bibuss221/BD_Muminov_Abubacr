@@ -62,6 +62,7 @@ Write-Host "База: $Database" -ForegroundColor DarkGray
 
 & $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\schema.sql"
 & $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\triggers.sql"
+& $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\functions.sql"
 & $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\views.sql"
 & $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\indexes.sql"
 & $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\roles.sql"
