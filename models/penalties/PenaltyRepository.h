@@ -1,3 +1,9 @@
 #pragma once
+
 #include <QSqlQueryModel>
-class PenaltyRepository{public:QSqlQueryModel* list();};
+
+class PenaltyRepository
+{
+public:
+    QSqlQueryModel* list();
+};
