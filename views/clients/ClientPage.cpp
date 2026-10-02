@@ -1,3 +1,10 @@
 #include "ClientPage.h"
+
 #include "controllers/clients/ClientController.h"
-ClientPage::ClientPage(QWidget*p):TablePage(p){table()->setModel(ClientController(this).load());}
+
+ClientPage::ClientPage(QWidget* parent)
+    : TablePage(parent)
+{
+    auto* controller = new ClientController(this);
+    table()->setModel(controller->load());
+}
