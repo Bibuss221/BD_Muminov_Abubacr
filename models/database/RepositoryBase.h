@@ -1,3 +1,9 @@
 #pragma once
+
 #include <QSqlQuery>
-class RepositoryBase { protected: QSqlQuery query() const; };
+
+class RepositoryBase
+{
+protected:
+    QSqlQuery query() const;
+};
