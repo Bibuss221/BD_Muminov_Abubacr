@@ -1,2 +1,12 @@
 #include "ConfirmDialog.h"
-bool ConfirmDialog::ask(QWidget*p,const QString&t){return QMessageBox::question(p,"Подтверждение",t,QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes;}
+
+bool ConfirmDialog::ask(QWidget* parent, const QString& text)
+{
+    const auto result = QMessageBox::question(
+        parent,
+        QStringLiteral("Подтверждение"),
+        text,
+        QMessageBox::Yes | QMessageBox::No);
+
+    return result == QMessageBox::Yes;
+}
