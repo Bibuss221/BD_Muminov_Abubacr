@@ -1,3 +1,9 @@
 #pragma once
+
 #include <QSqlQueryModel>
-class ReportRepository{public:QSqlQueryModel* carSummary();};
+
+class ReportRepository
+{
+public:
+    QSqlQueryModel* carSummary();
+};
