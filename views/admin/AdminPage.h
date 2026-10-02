@@ -1,3 +1,16 @@
 #pragma once
+
 #include <QWidget>
-class AdminPage:public QWidget{Q_OBJECT public:using QWidget::QWidget;};
+
+class QLabel;
+
+class AdminPage : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit AdminPage(QWidget* parent = nullptr);
+
+private:
+    QLabel* description_;
+};
