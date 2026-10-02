@@ -11,6 +11,7 @@
 Дополнительный код, который в тексте ПЗ описан отдельными подразделами:
 
 - представление `v_car_rent_summary` → `database/views.sql`;
+- функция расчёта стоимости → `database/functions.sql`;
 - индексы → `database/indexes.sql`;
 - проверка оптимизации → `database/optimization.sql`;
 - резервное копирование → `scripts/backup_database.ps1`;
