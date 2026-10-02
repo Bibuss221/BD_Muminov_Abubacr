@@ -1,4 +1,17 @@
 #pragma once
-#include <QWidget>
+
 #include <QTableView>
-class TablePage:public QWidget{Q_OBJECT public:explicit TablePage(QWidget*p=nullptr);QTableView* table()const{return table_;}private:QTableView*table_;};
+#include <QWidget>
+
+class TablePage : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit TablePage(QWidget* parent = nullptr);
+
+    QTableView* table() const;
+
+private:
+    QTableView* table_;
+};
