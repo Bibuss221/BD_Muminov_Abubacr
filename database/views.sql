@@ -1,0 +1,1 @@
+CREATE OR REPLACE VIEW v_car_rent_summary AS SELECT a.гос_номер,a.марка,a.тип,COUNT(s.id_сделки) AS количество_сделок,COALESCE(SUM(s.стоимость_проката),0) AS общая_выручка FROM Автомобиль a LEFT JOIN Сделка s ON s.гос_номер=a.гос_номер GROUP BY a.гос_номер,a.марка,a.тип;

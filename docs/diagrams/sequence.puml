@@ -1,0 +1,11 @@
+@startuml
+actor Пользователь
+boundary View
+control Controller
+database PostgreSQL
+Пользователь->View: действие
+View->Controller: команда
+Controller->PostgreSQL: SQL
+PostgreSQL-->Controller: результат
+Controller-->View: данные
+@enduml

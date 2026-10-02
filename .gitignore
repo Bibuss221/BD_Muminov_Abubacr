@@ -4,6 +4,7 @@ build/
 *.user
 *.user.*
 .env
+logs/
 *.log
 *.zip
 .DS_Store

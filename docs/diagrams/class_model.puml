@@ -1,0 +1,9 @@
+@startuml
+class MainWindow
+class ClientController
+class ClientRepository
+class DatabaseManager
+MainWindow-->ClientController
+ClientController-->ClientRepository
+ClientRepository-->DatabaseManager
+@enduml

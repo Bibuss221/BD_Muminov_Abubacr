@@ -1,0 +1,5 @@
+@startuml
+[View] --> [Controller]
+[Controller] --> [Model]
+[Model] --> [PostgreSQL]
+@enduml

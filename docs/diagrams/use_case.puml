@@ -1,0 +1,11 @@
+@startuml
+actor "Сотрудник проката" as E
+actor "Руководитель" as M
+actor "Администратор БД" as A
+rectangle "Система проката автомобилей" { usecase "Работа с клиентами" as C; usecase "Работа с автомобилями" as CAR; usecase "Оформить сделку" as D; usecase "Просмотр отчёта" as R; usecase "Администрирование БД" as AD }
+E-->C
+E-->CAR
+E-->D
+M-->R
+A-->AD
+@enduml
