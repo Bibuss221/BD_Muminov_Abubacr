@@ -1,3 +1,9 @@
 #pragma once
+
 #include <QSqlQueryModel>
-class DiscountRepository{public:QSqlQueryModel* list();};
+
+class DiscountRepository
+{
+public:
+    QSqlQueryModel* list();
+};
