@@ -26,7 +26,7 @@ function Find-Newest([string]$pattern)
 }
 
 if (-not $PgBin) {
-    $PgBin = Find-Newest "C:\Program Files\PostgreSQL\*\bin"
+    $PgBin = Find-Newest "C:Program FilesPostgreSQL*\bin"
 }
 
 if (-not $PgBin) {
@@ -55,21 +55,15 @@ $env:PATH = "$PgBin;$($env:PATH)"
 Write-Host "PostgreSQL: $PgBin" -ForegroundColor DarkGray
 Write-Host "База: $Database" -ForegroundColor DarkGray
 
-# createdb возвращает ошибку, если база уже существует.
-# Это не мешает повторному запуску сценария, поэтому ошибка здесь отдельно
-# обрабатывается.
 & $createdb -U postgres $Database 2>$null
-
-& $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\schema.sql"
-& $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\triggers.sql"
-& $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\functions.sql"
-& $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\views.sql"
-& $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\indexes.sql"
-& $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\roles.sql"
-& $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$root\database\seed.sql"
-
 if ($LASTEXITCODE -ne 0) {
-    throw "Один из SQL-скриптов завершился с ошибкой."
+    Write-Host "База уже существует, выполняется её полная пересборка." -ForegroundColor DarkGray
 }
 
-Write-Host "База $Database готова." -ForegroundColor Green
+& $psql -U postgres -d $Database -v ON_ERROR_STOP=1 -f "$rootdatabaseull_database.sql"
+
+if ($LASTEXITCODE -ne 0) {
+    throw "Полный SQL-сценарий завершился с ошибкой."
+}
+
+Write-Host "База $Database готова. Загружены структура, серверная логика и демонстрационные данные." -ForegroundColor Green
