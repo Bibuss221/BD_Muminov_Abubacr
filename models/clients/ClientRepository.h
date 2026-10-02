@@ -1,3 +1,9 @@
 #pragma once
+
 #include <QSqlQueryModel>
-class ClientRepository{public:QSqlQueryModel* list();};
+
+class ClientRepository
+{
+public:
+    QSqlQueryModel* list();
+};
