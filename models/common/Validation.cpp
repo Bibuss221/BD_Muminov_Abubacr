@@ -1,2 +1,9 @@
 #include "Validation.h"
-namespace Validation { bool required(const QString& s){return !s.trimmed().isEmpty();} }
+
+namespace Validation
+{
+bool required(const QString& value)
+{
+    return !value.trimmed().isEmpty();
+}
+}
