@@ -1,3 +1,9 @@
 #pragma once
+
 #include <QString>
-class AuthService{public:QString currentUser() const;};
+
+class AuthService
+{
+public:
+    QString currentUser() const;
+};
