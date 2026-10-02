@@ -1,2 +1,29 @@
 #include "DateRules.h"
-namespace DateRules { bool validRentalPeriod(const QDate& i,const QDate& e,const QDate& a){return i.isValid()&&e>=i&&(!a.isValid()||a>=i);} bool overlaps(const QDate& as,const QDate& ae,const QDate& bs,const QDate& be){return as<=be&&bs<=ae;} }
+
+namespace DateRules
+{
+bool validRentalPeriod(
+    const QDate& issueDate,
+    const QDate& expectedReturnDate,
+    const QDate& actualReturnDate)
+{
+    if (!issueDate.isValid()) {
+        return false;
+    }
+
+    if (expectedReturnDate < issueDate) {
+        return false;
+    }
+
+    return !actualReturnDate.isValid() || actualReturnDate >= issueDate;
+}
+
+bool overlaps(
+    const QDate& firstStart,
+    const QDate& firstEnd,
+    const QDate& secondStart,
+    const QDate& secondEnd)
+{
+    return firstStart <= secondEnd && secondStart <= firstEnd;
+}
+}
