@@ -1,3 +1,14 @@
 #pragma once
+
 #include <QObject>
-class AdminController:public QObject{Q_OBJECT public:using QObject::QObject;};
+#include <QString>
+
+class AdminController : public QObject
+{
+    Q_OBJECT
+
+public:
+    using QObject::QObject;
+
+    QString roleDescription() const;
+};
