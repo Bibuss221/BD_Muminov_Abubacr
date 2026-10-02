@@ -1,4 +1,30 @@
 #include <QtTest>
+
 #include "models/common/DateRules.h"
-class T:public QObject{Q_OBJECT private slots:void overlap(){QVERIFY(DateRules::overlaps(QDate(2026,10,1),QDate(2026,10,5),QDate(2026,10,4),QDate(2026,10,8)));QVERIFY(!DateRules::overlaps(QDate(2026,10,1),QDate(2026,10,5),QDate(2026,10,6),QDate(2026,10,8)));}};QTEST_APPLESS_MAIN(T)
+
+class OverlapRulesTest : public QObject
+{
+    Q_OBJECT
+
+private slots:
+    void overlap()
+    {
+        QVERIFY(
+            DateRules::overlaps(
+                QDate(2026, 10, 1),
+                QDate(2026, 10, 5),
+                QDate(2026, 10, 4),
+                QDate(2026, 10, 8)));
+
+        QVERIFY(
+            !DateRules::overlaps(
+                QDate(2026, 10, 1),
+                QDate(2026, 10, 5),
+                QDate(2026, 10, 6),
+                QDate(2026, 10, 8)));
+    }
+};
+
+QTEST_APPLESS_MAIN(OverlapRulesTest)
+
 #include "test_overlap_rules.moc"
