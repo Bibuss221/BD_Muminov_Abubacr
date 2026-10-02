@@ -9,7 +9,7 @@
 - PostgreSQL — физическая модель, ограничения, триггеры, представление, индексы, роли и тестовые данные;
 - C++/Qt — клиентское приложение для подключения к БД и просмотра результатов запросов.
 
-Архитектурно исходный код организован по слоям Model / Controller / View по образцу репозитория Наумова. При этом предметная область, названия таблиц и серверная логика взяты из пояснительной записки Муминова.
+Архитектурно исходный код организован по слоям Model / Controller / View. Предметная область, названия таблиц и серверная логика относятся к системе проката автомобилей.
 
 ## Текущее функциональное состояние
 
@@ -120,6 +120,7 @@ powershell -ExecutionPolicy Bypass -File scripts\setup_database.ps1
 createdb -U postgres rental_cars_db
 psql -U postgres -d rental_cars_db -f database\schema.sql
 psql -U postgres -d rental_cars_db -f database\triggers.sql
+psql -U postgres -d rental_cars_db -f database\functions.sql
 psql -U postgres -d rental_cars_db -f database\views.sql
 psql -U postgres -d rental_cars_db -f database\indexes.sql
 psql -U postgres -d rental_cars_db -f database\roles.sql
