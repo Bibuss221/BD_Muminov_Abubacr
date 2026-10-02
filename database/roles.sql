@@ -23,6 +23,7 @@ END
 $$;
 
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM PUBLIC;
 
 GRANT SELECT, INSERT, UPDATE
     ON Клиент, Автомобиль, Сделка
@@ -30,6 +31,12 @@ GRANT SELECT, INSERT, UPDATE
 
 GRANT SELECT, INSERT, UPDATE
     ON Скидка, Штраф, Применение_скидки
+    TO employee_rental;
+
+-- SERIAL-поля используют sequences. Без USAGE роль не сможет вставлять
+-- новые строки в таблицы с автоматически выдаваемым идентификатором.
+GRANT USAGE, SELECT
+    ON ALL SEQUENCES IN SCHEMA public
     TO employee_rental;
 
 GRANT SELECT
