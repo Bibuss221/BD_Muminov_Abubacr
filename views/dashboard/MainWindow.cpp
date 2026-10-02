@@ -66,9 +66,7 @@ void MainWindow::checkDatabaseConnection()
             this,
             QStringLiteral("Проверка PostgreSQL"),
             DatabaseManager::instance().connectionSummary()
-                + QStringLiteral("
-
-")
+                + QStringLiteral("\n\n")
                 + response);
 
         return;
