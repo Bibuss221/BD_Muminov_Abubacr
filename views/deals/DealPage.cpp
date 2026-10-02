@@ -1,3 +1,10 @@
 #include "DealPage.h"
+
 #include "controllers/deals/DealController.h"
-DealPage::DealPage(QWidget*p):TablePage(p){table()->setModel(DealController(this).load());}
+
+DealPage::DealPage(QWidget* parent)
+    : TablePage(parent)
+{
+    auto* controller = new DealController(this);
+    table()->setModel(controller->load());
+}
