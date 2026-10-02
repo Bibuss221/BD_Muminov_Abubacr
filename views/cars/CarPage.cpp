@@ -1,3 +1,10 @@
 #include "CarPage.h"
+
 #include "controllers/cars/CarController.h"
-CarPage::CarPage(QWidget*p):TablePage(p){table()->setModel(CarController(this).load());}
+
+CarPage::CarPage(QWidget* parent)
+    : TablePage(parent)
+{
+    auto* controller = new CarController(this);
+    table()->setModel(controller->load());
+}
