@@ -1,6 +1,5 @@
 #include "DatabaseManager.h"
 
-#include <QDateTime>
 #include <QSqlError>
 #include <QSqlQuery>
 
@@ -60,7 +59,7 @@ QString DatabaseManager::connectionSummary() const
         .arg(query.value(0).toString(),
              query.value(1).toString(),
              query.value(2).toString(),
-             query.value(3).toDateTime().toString(Qt::ISODate));
+             query.value(3).toString());
 }
 
 bool DatabaseManager::ping(QString* response) const
