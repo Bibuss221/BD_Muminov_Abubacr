@@ -1,5 +1,6 @@
 #include "DatabaseManager.h"
 
+#include <QDateTime>
 #include <QSqlError>
 #include <QSqlQuery>
 
