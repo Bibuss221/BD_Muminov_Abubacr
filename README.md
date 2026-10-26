@@ -28,9 +28,9 @@
 ## Структура
 
 BD_Muminov_Abubacr/
-├── CMakeLists.txt
-├── .env.example
-├── README.md
+├── CMakeLists.txt/
+├── .env.example/
+├── README.md/
 ├── LICENSE.md
 ├── app/
 ├── models/
